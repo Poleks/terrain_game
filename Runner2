@@ -1,0 +1,59 @@
+package com.qa.terrainGame;
+
+import java.util.Scanner;
+
+public class Runner {
+
+    public Runner() {
+
+    }
+
+    public static void main(String[] args) {
+
+        Player player1 = new Player();
+        Treasure chest = new Treasure();
+
+        player1.setPlayer_cord_x(0);
+        player1.setPlayer_cord_y(0);
+        chest.setTreasure_distance_x(2);
+        chest.setTreasure_distance_y(2);
+
+        player1.start();
+
+            Scanner scan = new Scanner(System.in);
+            
+            while ((player1.getPlayer_cord_x() & player1.getPlayer_cord_y()) != (chest.getTreasure_distance_x()
+                    & chest.getTreasure_distance_y())) {
+            	
+            	String playChoice = scan.nextLine();
+
+                switch (playChoice) {
+                    case "north":
+                    {
+                        player1.north();
+                        System.out.println("Which direction next?");
+                        break;
+                    }
+                    case "south":
+                    {
+                        player1.south();
+                        System.out.println("Which direction next?");
+                        break;
+                    }
+                    case "west":
+                    {
+                        player1.west();
+                        System.out.println("Which direction next?");
+                        break;
+                    }
+                    case "east":
+                    {
+                        player1.east();
+                        System.out.println("Which direction next?");
+                        break;
+                    }
+                }
+            }
+            System.out.println("You found the chest!");
+        }
+    }
